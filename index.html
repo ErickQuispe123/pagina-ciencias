@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultad de Ciencias - UNICA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./imagenes/ciencias-removebg-preview.webp">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#" onclick="navigateTo('home')">
+                <img src="./imagenes/ciencias-removebg-preview.webp" alt="Logo Facultad" class="me-2 px-2">
+                <div class="d-none d-sm-block">
+                    <span class="fs-6 d-block lh-1">FACULTAD DE</span>
+                    <span class="fw-bold fs-4">CIENCIAS</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('home')">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('autoridades')">AUTORIDADES Y
+                            DOCENTES</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="navigateTo('programas')">PROGRAMAS
+                            ACADÉMICOS</a></li>
+                    <li class="nav-item mt-3 mt-lg-0 ms-lg-4">
+                        <a class="btn-aula-virtual" href="https://aulavirtual.unica.edu.pe/" target="_blank">
+                            AULA VIRTUAL
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main id="home" class="content-section active">
+        <section class="hero">
+            <div class="container">
+                <h1 class="display-3 fw-bold mb-3">El Corazón de la Ciencia en Ica</h1>
+                <p class="lead fs-3 border-top pt-3 d-inline-block" style="border-color: var(--accent) !important;">
+                    Excelencia Académica y Rigor Científico
+                </p>
+            </div>
+        </section>
+
+        <section class="container my-5 py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-7">
+                    <h2 class="section-title">Nuestra Facultad</h2>
+                    <p class="lead fw-bold text-primary">Forjando el futuro científico de la región.</p>
+                    <p class="text-muted">
+                        Más que una unidad académica, la Facultad de Ciencias es el epicentro de la investigación y el
+                        rigor científico iqueño. Aquí, fomentamos un entorno donde la curiosidad se encuentra con la
+                        precisión de las ciencias exactas para descifrar las leyes del universo. Nuestro compromiso es
+                        convertir ese conocimiento teórico en soluciones prácticas y profesionales líderes que
+                        transformen los desafíos de la sociedad en oportunidades de innovación.
+                    </p>
+                    <p class="lead fw-bold text-primary">Actualmente contamos con:</p>
+                    <div class="d-flex gap-3 mt-4">
+                        <div class="p-3 bg-custom-secondary rounded-3 text-center flex-fill">
+                            <h3 class="fw-bold mb-0 text-primary">290</h3>
+                            <small class="text-uppercase fw-bold">Estudiantes</small>
+                        </div>
+                        <div class="p-3 bg-custom-secondary rounded-3 text-center flex-fill">
+                            <h3 class="fw-bold mb-0 text-primary">42</h3>
+                            <small class="text-uppercase fw-bold">Investigadores</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-lg overflow-hidden rounded-4">
+                        <img src="./imagenes/conacipa.webp" class="img-fluid" alt="Frontis Facultad">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5" style="background-color: #f8f9fa;">
+            <div class="container">
+                <div class="row g-5 align-items-center flex-lg-row-reverse">
+                    <div class="col-lg-7">
+                        <h2 class="section-title">Nuestra Historia</h2>
+
+                        <p class="text-muted" style="text-align: justify;">
+                            La Facultad de Ciencias fue concebida desde la fundación de la Universidad Nacional “San
+                            Luis Gonzaga” en 1955 mediante la Ley 12495. No obstante, su estructura académica moderna se
+                            formalizó en 1984 y sus actividades operativas iniciaron oficialmente el 23 de septiembre de
+                            1985 con las escuelas de Matemática y Biología, bajo la conducción transitoria del Ing.
+                            Manuel Tellería Márquez.
+                        </p>
+
+                        <p class="text-muted" style="text-align: justify;">
+                            A lo largo de los años, la institución evolucionó para adaptarse a las demandas
+                            tecnológicas. En mayo de 1998, hitos importantes marcaron su crecimiento: se oficializó la
+                            nueva denominación de la Carrera Profesional de Matemática e Informática y se aprobó el
+                            funcionamiento y equipamiento de la especialidad de Física, fortaleciendo el marco
+                            estatutario y el impacto de la facultad en la formación científica del país.
+                        </p>
+
+                        <p class="text-muted" style="text-align: justify;">
+                            En la actualidad, tras un proceso de reorganización administrativa, la facultad ha
+                            consolidado su oferta académica definitiva. Según la Resolución Rectoral N°
+                            1589-R-UNICA-2020, la institución lidera hoy la formación en tres programas bandera:
+                            <strong>Matemática e Informática, Física y Estadística</strong>, otorgando grados y títulos
+                            que impulsan el desarrollo científico regional.
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card border-0 shadow-lg overflow-hidden rounded-4">
+                            <img src="./imagenes/telescopio.webp" class="img-fluid" alt="Historia y Ciencia">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="container my-5 py-5">
+            <h2 class="section-title text-center mx-auto mb-5">Nuestros Programas Académicos</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-carrera">
+                        <img src="./imagenes/estadisticas.webp" class="card-img-top" alt="Estadística">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-circle mb-3 mx-auto bg-custom-secondary">
+                                <i class="bi bi-graph-up text-primary fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold">Estadística</h4>
+                            <p class="small text-muted">Dominio de modelos predictivos, Big Data y análisis crítico para
+                                la toma de decisiones estratégicas en el mundo actual.</p>
+                            <button class="btn btn-outline-primary btn-sm rounded-pill"
+                                onclick="navigateTo('programas')">Ver Plan de Estudios</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-carrera">
+                        <img src="./imagenes/fisica.webp" class="card-img-top" alt="Fisica">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-circle mb-3 mx-auto bg-custom-secondary">
+                                <i class="bi bi-lightning-charge text-primary fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold">Física</h4>
+                            <p class="small text-muted">Exploración de las leyes del universo, desde la mecánica
+                                cuántica hasta las energías renovables y física aplicada.</p>
+                            <button class="btn btn-outline-primary btn-sm rounded-pill"
+                                onclick="navigateTo('programas')">Ver Plan de Estudios</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-carrera">
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=400"
+                            class="card-img-top" alt="Matematica">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-circle mb-3 mx-auto bg-custom-secondary">
+                                <i class="bi bi-calculator text-primary fs-3"></i>
+                            </div>
+                            <h4 class="fw-bold">Matemática e Info.</h4>
+                            <p class="small text-muted">El núcleo del desarrollo tecnológico. Algoritmos, lógica pura y
+                                computación de alto rendimiento para el siglo XXI.</p>
+                            <button class="btn btn-outline-primary btn-sm rounded-pill"
+                                onclick="navigateTo('programas')">Ver Plan de Estudios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <main id="autoridades" class="content-section">
+        <div class="container my-5 pt-4">
+            <h2 class="section-title text-center mx-auto">Cuadro de Autoridades</h2>
+            <div class="table-responsive mb-5">
+                <table class="table table-institutional align-middle bg-white">
+                    <thead>
+                        <tr>
+                            <th>Unidad / Cargo</th>
+                            <th>Nombre de la Autoridad</th>
+                            <th>Resolución</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Decano</strong></td>
+                            <td>Dr. Miguel Federico Tasayco Montoya</td>
+                            <td>R.R. N° 1570-R-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Dir. Escuela Profesional de Estadística</td>
+                            <td>Dr. Manuel Mariano Cupe Lunasco</td>
+                            <td>R.D. N° 035-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Dir. Escuela Profesional de Física</td>
+                            <td>Dr. Rubén Arquímedes Noriega Falcón</td>
+                            <td>R.D. N° 033-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Dir. Escuela Matemática e Informática</td>
+                            <td>Dr. Orlando Eugenio Berrocal Navarro</td>
+                            <td>R.D. N° 034-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Dir. Depto. Académico de Física</td>
+                            <td>Dr. Walter Ronald Aquije Muñoz</td>
+                            <td>R.D. N° 037-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Dir. Depto. Académico de Matemática</td>
+                            <td>Dr. Rubén Tito Flores</td>
+                            <td>R.D. N° 036-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Director de Unidad de Investigación</td>
+                            <td>Dr. Alberto Ernesto Gutiérrez Borda</td>
+                            <td>R.D. N° 032-FC-UNICA-2024</td>
+                        </tr>
+                        <tr>
+                            <td>Director de Unidad de Posgrado</td>
+                            <td>Dr. Carlos Aparcana Aquije</td>
+                            <td>R.D. N° 098-D/FC-UNICA-2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="section-title text-center mx-auto">Plana Docente Ordinaria</h2>
+            <div class="table-responsive">
+                <table class="table table-institutional table-hover bg-white">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Completo</th>
+                            <th>Categoría</th>
+                            <th class="text-center">CTI Vitae</th>
+                        </tr>
+                    </thead>
+                    <tbody id="teachersTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <main id="programas" class="content-section">
+        <section class="py-5 bg-light border-bottom">
+            <div class="container text-center">
+                <h2 class="display-4 fw-bold text-primary mb-3">Nuestras Escuelas Profesionales</h2>
+                <p class="lead mx-auto" style="max-width: 700px;">
+                    Formamos científicos con visión global y rigor académico. Explora nuestros planes de estudio,
+                    mallas curriculares y resoluciones de adecuación vigentes.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-7">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-graph-up-arrow fs-1 text-primary me-3"></i>
+                            <h3 class="fw-bold mb-0">Escuela Profesional de Estadística</h3>
+                        </div>
+                        <p class="text-muted mb-4" style="text-align: justify; line-height: 1.8;">
+                            La Escuela Profesional de Estadística se erige como el pilar fundamental para la comprensión de la realidad en una era dominada por la información masiva y la transformación digital. Nuestra formación académica trasciende el simple cálculo numérico; capacitamos a futuros profesionales en el dominio avanzado de modelos probabilísticos, inferencia estadística y técnicas de minería de datos de vanguardia. El estudiante de nuestra escuela desarrolla una capacidad analítica superior que le permite identificar patrones críticos, evaluar riesgos y proyectar escenarios futuros con precisión científica. Estos expertos se convierten en piezas estratégicas indispensables tanto en la gestión pública como en la industria privada, aplicando el rigor metodológico para optimizar recursos, potenciar la investigación científica y liderar la toma de decisiones basadas en evidencia en sectores tan diversos como la economía, la salud, el medio ambiente y la alta tecnología.
+                        </p>
+
+                        <div class="table-responsive shadow-sm rounded-3">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-primary text-white">
+                                    <tr>
+                                        <th class="py-3 ps-4">Documentación Oficial</th>
+                                        <th class="text-center py-3">Enlace</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Plan de Estudios Vigente</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/PRE%20-%20Estadistica%20-%20Plan.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Malla Curricular Académica</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/PRE%20-%20Estadistica%20-%20Malla.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="./imagenes/estadisticas.webp"
+                            class="img-fluid rounded-4 shadow-lg border-start border-5 border-warning"
+                            alt="Estadística">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row g-5 align-items-center flex-lg-row-reverse">
+                    <div class="col-lg-7">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-globe-americas fs-1 text-primary me-3"></i>
+                            <h3 class="fw-bold mb-0">Escuela Profesional de Física</h3>
+                        </div>
+                        <p class="text-muted mb-4" style="text-align: justify; line-height: 1.8;">
+                            La Escuela Profesional de Física invita a los estudiantes a emprender un viaje intelectual profundo que abarca desde las partículas subatómicas más elementales hasta la inmensidad de las estructuras galácticas. Nuestra propuesta educativa equilibra de manera magistral una sólida fundamentación teórica con un riguroso entrenamiento en laboratorios experimentales de última generación. A través de disciplinas como la mecánica clásica, el electromagnetismo, la termodinámica y la física cuántica, fomentamos una curiosidad insaciable y un espíritu crítico que permite a nuestros futuros científicos desentrañar y manipular las leyes universales que gobiernan la materia y la energía. El profesional egresado de nuestra facultad no solo comprende la realidad física, sino que está preparado para liderar la innovación tecnológica en campos emergentes como las energías renovables, la física médica, la nanotecnología y la astrofísica, contribuyendo directamente al progreso científico regional y nacional mediante la investigación de alto impacto.
+                        </p>
+
+                        <div class="table-responsive shadow-sm rounded-3 border">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-primary text-white">
+                                    <tr>
+                                        <th class="py-3 ps-4">Documentación Oficial</th>
+                                        <th class="text-center py-3">Enlace</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Plan de Estudios Vigente</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/PRE%20-%20Fisica%20-%20Plan.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Plan de Adecuación 2021</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/2021/P04%20-%20Plan%202021.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="./imagenes/fisica.webp"
+                            class="img-fluid rounded-4 shadow-lg border-end border-5 border-warning" alt="Física">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-7">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-calculator fs-1 text-primary me-3"></i>
+                            <h3 class="fw-bold mb-0">Escuela Profesional de Matemática e Informática</h3>
+                        </div>
+                        <p class="text-muted mb-4" style="text-align: justify; line-height: 1.8;">
+                            La Escuela Profesional de Matemática e Informática representa la vanguardia del pensamiento lógico y la arquitectura tecnológica en nuestra facultad, fusionando la pureza de la abstracción matemática con la potencia disruptiva de las ciencias de la computación. Nuestro programa académico forma líderes capaces de diseñar soluciones algorítmicas de alta complejidad y sistemas de software de rendimiento superior. El estudiante se sumerge en un estudio riguroso que abarca desde el análisis matemático y el álgebra superior hasta el desarrollo de inteligencia artificial, ciberseguridad y modelamiento computacional avanzado. Fomentamos una capacidad analítica crítica que permite a nuestros futuros egresados no solo comprender las estructuras lógicas del universo, sino también transformarlas en herramientas tangibles para la innovación informática. Como arquitectos de la era digital, nuestros profesionales están preparados para liderar la transformación tecnológica, resolviendo desafíos técnicos de gran escala y contribuyendo al desarrollo de infraestructuras inteligentes que impulsan el progreso socioeconómico y científico del país.
+                        </p>
+
+                        <div class="table-responsive shadow-sm rounded-3">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-primary text-white">
+                                    <tr>
+                                        <th class="py-3 ps-4">Documentación Oficial</th>
+                                        <th class="text-center py-3">Enlace</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Malla Curricular Académica</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/PRE%20-%20Matematica%20-%20Malla.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-4 text-dark fw-medium">Plan de Adecuación 2021</td>
+                                        <td class="text-center"><a
+                                                href="https://www.unica.edu.pe/ciencias/info/estudios/2021/P06%20-%20Plan%202021.pdf"
+                                                target="_blank"
+                                                class="btn btn-link p-0 text-decoration-none fw-bold">Descargar <i
+                                                    class="bi bi-download"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 text-center">
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=400"
+                            class="img-fluid rounded-4 shadow-lg border-start border-5 border-warning"
+                            alt="Matemática e Informática">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer>
+        <div class="container text-center text-md-start">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h5 class="fw-bold mb-3" style="color: var(--accent);">Facultad de Ciencias - UNICA</h5>
+                    <p class="small opacity-75">Av. Los Maestros - Ciudad Universitaria - Ica, Perú<br>
+                        Teléfono: +51 956 795 057</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="small">© 2026 Universidad Nacional San Luis Gonzaga de Ica<br>
+                        <span class="text-white-50">Desarrollado para la excelencia académica</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

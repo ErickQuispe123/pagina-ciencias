@@ -2,6 +2,152 @@
 <html lang="es">
 
 <head>
+    
+  <style id="chatbot-styles">
+    /* ── Burbuja flotante ─────────────────────────────────── */
+    #fcBubble {
+      position: fixed; bottom: 28px; right: 28px;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--primary); border: none;
+      box-shadow: 0 6px 24px rgba(13,4,141,.4);
+      cursor: pointer; z-index: 1050;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .25s, box-shadow .25s;
+    }
+    #fcBubble:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(13,4,141,.55); }
+    #fcBubble i { font-size: 22px; color: #fff; }
+    #fcBubble .fc-dot {
+      position: absolute; top: 5px; right: 5px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--accent); border: 2px solid #fff;
+      animation: fcPulse 2s infinite;
+    }
+    @keyframes fcPulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.4); opacity: .65; }
+    }
+
+    /* ── Ventana del chat ─────────────────────────────────── */
+    #fcWindow {
+      position: fixed; bottom: 96px; right: 28px;
+      width: 355px; max-width: calc(100vw - 36px);
+      height: 510px; max-height: calc(100vh - 130px);
+      background: #fff; border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(13,4,141,.18);
+      display: flex; flex-direction: column; overflow: hidden;
+      z-index: 1049;
+      /* Animación cerrado → abierto */
+      transform: scale(.85) translateY(28px);
+      opacity: 0; pointer-events: none;
+      transition: transform .3s cubic-bezier(.34,1.56,.64,1), opacity .25s;
+    }
+    #fcWindow.fc-open {
+      transform: scale(1) translateY(0);
+      opacity: 1; pointer-events: all;
+    }
+
+    /* Header */
+    .fc-header {
+      background: var(--primary); padding: 13px 16px;
+      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    }
+    .fc-av {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0;
+    }
+    .fc-hinfo h6 { margin: 0; color: #fff; font-size: .88rem; font-weight: 600; }
+    .fc-hinfo small { color: var(--secondary); font-size: .7rem; }
+    .fc-x {
+      margin-left: auto; background: none; border: none;
+      color: rgba(255,255,255,.6); font-size: 19px;
+      cursor: pointer; line-height: 1; padding: 0 2px;
+      transition: color .2s;
+    }
+    .fc-x:hover { color: #fff; }
+
+    /* Mensajes */
+    .fc-body {
+      flex: 1; overflow-y: auto; padding: 14px;
+      display: flex; flex-direction: column; gap: 10px;
+      background: #f5f7ff; scroll-behavior: smooth;
+    }
+    .fc-body::-webkit-scrollbar { width: 3px; }
+    .fc-body::-webkit-scrollbar-thumb { background: #c3cfe8; border-radius: 4px; }
+
+    .fc-msg { display: flex; gap: 6px; align-items: flex-end; }
+    .fc-msg.fc-bot  { flex-direction: row; }
+    .fc-msg.fc-user { flex-direction: row-reverse; }
+    .fc-mav {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .fc-bbl {
+      max-width: 78%; padding: 8px 13px;
+      border-radius: 15px; font-size: .83rem; line-height: 1.5;
+    }
+    .fc-bot  .fc-bbl {
+      background: #fff; color: var(--text-dark);
+      border-bottom-left-radius: 3px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    }
+    .fc-user .fc-bbl {
+      background: var(--primary); color: #fff;
+      border-bottom-right-radius: 3px;
+    }
+
+    /* Typing */
+    .fc-typing { display: flex; gap: 4px; padding: 3px 0; align-items: center; }
+    .fc-typing span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #9aa5c4; animation: fcBounce .9s infinite;
+    }
+    .fc-typing span:nth-child(2) { animation-delay: .15s; }
+    .fc-typing span:nth-child(3) { animation-delay: .30s; }
+    @keyframes fcBounce {
+      0%,60%,100% { transform: translateY(0); }
+      30%          { transform: translateY(-6px); }
+    }
+
+    /* Chips */
+    .fc-chips {
+      display: flex; flex-wrap: wrap; gap: 5px;
+      padding: 8px 14px; background: #fff;
+      border-top: 1px solid #e8eef8;
+    }
+    .fc-chip {
+      font-size: .71rem; padding: 3px 10px; border-radius: 20px;
+      border: 1.5px solid var(--primary); color: var(--primary);
+      background: none; cursor: pointer; font-family: inherit;
+      transition: background .2s, color .2s;
+    }
+    .fc-chip:hover { background: var(--primary); color: #fff; }
+
+    /* Input */
+    .fc-foot {
+      padding: 10px 13px; border-top: 1px solid #e8eef8;
+      background: #fff; display: flex; gap: 7px; align-items: center; flex-shrink: 0;
+    }
+    .fc-foot input {
+      flex: 1; border: 1.5px solid #cdd6ee; border-radius: 22px;
+      padding: 8px 14px; font-size: .83rem; outline: none;
+      transition: border .2s; font-family: inherit;
+    }
+    .fc-foot input:focus { border-color: var(--primary); }
+    .fc-sendbtn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary); border: none; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s, transform .15s;
+    }
+    .fc-sendbtn:hover   { background: #1a0fb3; transform: scale(1.08); }
+    .fc-sendbtn:disabled { background: #aab; cursor: not-allowed; transform: none; }
+    .fc-sendbtn i { color: #fff; font-size: 15px; }
+  </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facultad de Ciencias - UNICA</title>
@@ -10,6 +156,167 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./imagenes/ciencias-removebg-preview.webp">
 </head>
+
+
+<!-- Botón burbuja -->
+<button id="fcBubble" title="Asistente virtual">
+  <span class="fc-dot"></span>
+  <i class="bi bi-chat-dots-fill"></i>
+</button>
+
+<!-- Ventana -->
+<div id="fcWindow">
+
+  <div class="fc-header">
+    <div class="fc-av">FC</div>
+    <div class="fc-hinfo">
+      <h6>Asistente – Fac. Ciencias</h6>
+      <small>⬤&nbsp; En línea · UNICA, Ica</small>
+    </div>
+    <button class="fc-x" id="fcClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+
+  <div class="fc-body" id="fcBody"></div>
+
+  <div class="fc-chips">
+    <button class="fc-chip" data-q="¿Cuáles son los programas académicos?">Programas</button>
+    <button class="fc-chip" data-q="¿Quién es el decano?">Decano</button>
+    <button class="fc-chip" data-q="¿Cuántos estudiantes hay?">Estudiantes</button>
+    <button class="fc-chip" data-q="¿Qué laboratorios tienen?">Laboratorios</button>
+    <button class="fc-chip" data-q="¿Cuál es la historia de la facultad?">Historia</button>
+  </div>
+
+  <div class="fc-foot">
+    <input type="text" id="fcInput" placeholder="Escribe tu pregunta…" autocomplete="off">
+    <button class="fc-sendbtn" id="fcSend" disabled>
+      <i class="bi bi-send-fill"></i>
+    </button>
+  </div>
+
+</div>
+
+
+<script>
+(function () {
+
+  async function fcCallAI(message) { // Ahora recibe un solo mensaje
+    const response = await fetch('/api/call', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: message }) // Enviamos solo el string
+    });
+
+    const data = await response.json();
+    return data.response;
+  }
+
+  /* ── Estado ──────────────────────────────────────────────── */
+  const history = [];
+  let busy     = false;
+  let greeted  = false;
+
+  /* ── Refs ────────────────────────────────────────────────── */
+  const bubble   = document.getElementById('fcBubble');
+  const win      = document.getElementById('fcWindow');
+  const closeBtn = document.getElementById('fcClose');
+  const body     = document.getElementById('fcBody');
+  const input    = document.getElementById('fcInput');
+  const sendBtn  = document.getElementById('fcSend');
+
+  /* ── Toggle ──────────────────────────────────────────────── */
+  bubble.addEventListener('click', () => {
+    win.classList.toggle('fc-open');
+    if (win.classList.contains('fc-open') && !greeted) {
+      appendBot('¡Hola! 👋 Soy el asistente de la <strong>Facultad de Ciencias – UNICA</strong>. ¿En qué puedo ayudarte?');
+      greeted = true;
+    }
+  });
+  closeBtn.addEventListener('click', () => win.classList.remove('fc-open'));
+
+  /* ── Input ───────────────────────────────────────────────── */
+  input.addEventListener('input', () => {
+    sendBtn.disabled = !input.value.trim() || busy;
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { 
+      e.preventDefault(); 
+      if (!sendBtn.disabled) send(); 
+    }
+  });
+  sendBtn.addEventListener('click', send);
+
+  document.querySelectorAll('.fc-chip').forEach(c =>
+    c.addEventListener('click', () => { input.value = c.dataset.q; send(); })
+  );
+
+  /* ── Enviar mensaje (CORREGIDO) ───────────────────────────── */
+  async function send() {
+    const text = input.value.trim();
+    if (!text || busy) return;
+
+    // Limpiar input y bloquear UI
+    input.value = '';
+    sendBtn.disabled = true;
+    
+    // Mostrar en UI y guardar en historial local (opcional)
+    appendUser(text);
+    history.push({ role: 'user', content: text });
+    
+    busy = true;
+    const typingEl = appendTyping();
+
+    try {
+      // CAMBIO CLAVE: Enviamos solo el "text", no el array "history"
+      const reply = await fcCallAI(text); 
+      
+      typingEl.remove();
+      appendBot(reply);
+      history.push({ role: 'assistant', content: reply });
+    } catch (err) {
+      if (typingEl) typingEl.remove();
+      appendBot('Hubo un error de conexión. Por favor intenta de nuevo.');
+      console.error('[fcChatbot]', err);
+    }
+
+    busy = false;
+    // Rehabilitar el botón si hay algo escrito (o dejarlo como estaba)
+    sendBtn.disabled = !input.value.trim();
+  }
+
+  /* ── Renderizado ─────────────────────────────────────────── */
+  function appendBot(html) {
+    const d = document.createElement('div');
+    d.className = 'fc-msg fc-bot';
+    d.innerHTML = `<div class="fc-mav">FC</div><div class="fc-bbl">${html}</div>`;
+    body.appendChild(d); scroll();
+  }
+  function appendUser(text) {
+    const d = document.createElement('div');
+    d.className = 'fc-msg fc-user';
+    d.innerHTML = `<div class="fc-bbl">${esc(text)}</div>`;
+    body.appendChild(d); scroll();
+  }
+  function appendTyping() {
+    const d = document.createElement('div');
+    d.className = 'fc-msg fc-bot';
+    d.innerHTML = `<div class="fc-mav">FC</div><div class="fc-bbl"><div class="fc-typing"><span></span><span></span><span></span></div></div>`;
+    body.appendChild(d); scroll();
+    return d;
+  }
+  function scroll() { body.scrollTop = body.scrollHeight; }
+  function esc(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  }
+
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     BLOQUE 3 ─ LÓGICA DEL WIDGET
+     Pega esto justo ANTES del </body>, DESPUÉS de los otros scripts
+     ═══════════════════════════════════════════════════════════════ -->
 
 <body>
 

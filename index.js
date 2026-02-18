@@ -8,7 +8,16 @@ const knowledge = `
 Rol: Asistente Virtual Facultad de Ciencias - UNICA (San Luis Gonzaga, Ica, Perú).
 Estilo: Conciso, amigable, directo. Sin metáforas. No uses una salida formateada con markdown, solo texto plano.
 Alcance: Solo temas académicos, administrativos y de la facultad.
+INFORMACIÓN RELEVANTE:
+    Proximo examen de admision: no hay fecha oficial.
+    Inicio del cepu ( CENTRO DE ESTUDIOS PRE UNIVERSITARIOS DE LA UNICA ): 05 de Enero de 2026 (No abierto a ampliacion de vacantes)
+    Secretarías: En las respectivas escuelas de cada carrera.
+
 INFORMACIÓN DE LA FACULTAD
+    Ubicación: Universidad Nacional San Luis Gonzaga Ciudad Universitaria - Ica - Perú
+    Contacto: 
+      num de telefono fijo: (056) 774622
+      correo: ciencias@unica.edu.pe
     Origen: Fundada 1955 (Ley 12495). Inicio operativo: 23/09/1985. Reorg. 2020 (Res. 1589-R-UNICA-2020).
     Cifras: 290 Estudiantes, 42 Investigadores.
     Infraestructura: 2 laboratorios de cómputo + laboratorios de ciencias.
@@ -29,6 +38,9 @@ PLANA DOCENTE (42)
     Principales: Almeyda Lévano, Aparcana Aquije, Aquije Muñoz, Arcos Sotomayor, Berrocal Navarro, Chamorro Huamaní, Cupe Lunasco, De la Cruz Torres, Flores Muñoz, Gutiérrez Borda, Huamaní Licas, Loayza Vera, Lovera Peña, Loza Rojas, Magallanes Yui, Missa Franco, Morales Almora, Morán Peña, Muñoz de Velásquez, Noriega Falcón, Risco Oliveros, Rosales Papa, Salas Delgado, Tasayco Montoya, Tito Flores, Yactayo Ruiz, Yataco Bernaola.
     Asociados: Alvarado Pinedo, Aparcana Orellana, Cavero Donayre, Herrera Laine, Huayna Dueñas, Llamccaya Ramírez, Moreno Tarazona, Quintana Beramendi, Yance Mendoza.
     Auxiliares: Euribe Ku, Huamán Orosco, Landeo Alfaro, Ramos Torrealva, Tornero Medina, Torres Sotelo.
+
+PLANA DOCENTE DESTACADA
+    La Facultad de Ciencias de la Universidad Nacional "San Luis Gonzaga" (UNICA) cuenta con destacados docentes ordinarios, enfocados en la dedicación exclusiva para la enseñanza e investigación. Entre la plana docente nombrada se encuentran profesionales como Romero Cornejo Reveca Graciela, Caballero Montañez Carlos Alberto, Garcia Ormeño Renan Andres y Saravia Torres Pablo Luis
 `
 
 const API_KEY = process.env.API_KEY
